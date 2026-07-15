@@ -6,7 +6,8 @@
 <title>Dr. Hugh Wegwerth, DC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"></noscript>
 <style>
   :root{
     --navy:#0d2c54;
@@ -636,7 +637,7 @@
     <div class="popup-scroll">
       <div class="popup-form-embed">
         <iframe
-          src="https://api.leadconnectorhq.com/widget/form/NJ6uBqGnvSDGsS4f5sG1"
+          data-src="https://api.leadconnectorhq.com/widget/form/NJ6uBqGnvSDGsS4f5sG1"
           style="width:100%;height:100%;border:none;border-radius:4px"
           id="inline-NJ6uBqGnvSDGsS4f5sG1"
           data-layout="{'id':'INLINE'}"
@@ -656,7 +657,7 @@
     </div>
   </div>
 </div>
-<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+<script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
 
 
 <script>
@@ -749,6 +750,13 @@
     var closeBtn = document.getElementById('popupClose');
     if(!overlay || !closeBtn) return;
     var STORAGE_KEY = 'fqRoadmapPopupDismissed';
+    var popupIframe = overlay.querySelector('iframe[data-src]');
+
+    function loadPopupIframe(){
+      if(popupIframe && !popupIframe.src){
+        popupIframe.src = popupIframe.getAttribute('data-src');
+      }
+    }
 
     function hasBeenSeen(){
       try{ return !!localStorage.getItem(STORAGE_KEY); }catch(e){ return false; }
@@ -761,7 +769,10 @@
       markSeen();
     }
     function showPopup(){
-      if(!hasBeenSeen()) overlay.classList.add('visible');
+      if(!hasBeenSeen()){
+        loadPopupIframe();
+        overlay.classList.add('visible');
+      }
     }
 
     function scrollPercent(){
