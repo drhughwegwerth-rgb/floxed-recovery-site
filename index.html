@@ -707,12 +707,12 @@
     });
   })();
 
-  // Email capture pop-up: shows once, after scrolling 10% down the page
+  // Email capture pop-up: shows every time someone lands on the page, after scrolling 30% down
   (function(){
     var overlay = document.getElementById('emailPopupOverlay');
     var closeBtn = document.getElementById('popupClose');
     if(!overlay || !closeBtn) return;
-    var STORAGE_KEY = 'fqRoadmapPopupDismissed';
+    var seenThisVisit = false;
     var popupIframe = overlay.querySelector('iframe[data-src]');
 
     function loadPopupIframe(){
@@ -721,18 +721,12 @@
       }
     }
 
-    function hasBeenSeen(){
-      try{ return !!localStorage.getItem(STORAGE_KEY); }catch(e){ return false; }
-    }
-    function markSeen(){
-      try{ localStorage.setItem(STORAGE_KEY, '1'); }catch(e){}
-    }
     function hidePopup(){
       overlay.classList.remove('visible');
-      markSeen();
+      seenThisVisit = true;
     }
     function showPopup(){
-      if(!hasBeenSeen()){
+      if(!seenThisVisit){
         loadPopupIframe();
         overlay.classList.add('visible');
       }
@@ -744,11 +738,11 @@
       return (window.scrollY / scrollable) * 100;
     }
     function checkScroll(){
-      if(hasBeenSeen()){
+      if(seenThisVisit){
         window.removeEventListener('scroll', checkScroll);
         return;
       }
-      if(scrollPercent() >= 10){
+      if(scrollPercent() >= 30){
         showPopup();
         window.removeEventListener('scroll', checkScroll);
       }
