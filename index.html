@@ -67,6 +67,47 @@
   }
   .hero-hotspot:hover{box-shadow:0 0 0 3px rgba(255,255,255,.6) inset;background:rgba(255,255,255,.08);}
   .hero-hotspot-round{border-radius:50%;}
+
+  .hero-copy-overlay{
+    position:absolute;left:4%;top:6%;width:47%;
+    display:flex;flex-direction:column;align-items:flex-start;z-index:2;
+  }
+  .hero-copy-overlay h1{
+    font-size:clamp(15px,3.6vw,44px);line-height:1.05;color:var(--navy);font-weight:900;
+    text-transform:uppercase;letter-spacing:.2px;margin-bottom:clamp(4px,1.4vw,16px);
+  }
+  .hero-divider{
+    width:70%;max-width:320px;height:2px;
+    background:linear-gradient(90deg, var(--navy), rgba(13,44,84,0));
+    margin-bottom:clamp(4px,1.4vw,18px);
+  }
+  .hero-copy-overlay p{
+    font-size:clamp(7px,1.35vw,18px);color:var(--navy);font-weight:600;line-height:1.4;
+    margin-bottom:clamp(6px,1.8vw,22px);max-width:92%;
+  }
+  .hero-overlay-btn{
+    padding:clamp(4px,1.7vw,18px) clamp(8px,2.6vw,28px);font-size:clamp(6px,1.3vw,15px);
+    white-space:nowrap;
+  }
+  .hero-play-overlay{
+    position:absolute;left:71.5%;top:64%;transform:translate(-50%,-50%);
+    width:clamp(26px,8vw,90px);height:clamp(19px,5.6vw,64px);
+    background:#e0261f;border-radius:16%;border:0;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .15s ease;z-index:3;
+  }
+  .hero-play-overlay:hover{transform:translate(-50%,-50%) scale(1.06);}
+  .hero-play-overlay::after{
+    content:'';border-style:solid;
+    border-width:clamp(5px,1.4vw,15px) 0 clamp(5px,1.4vw,15px) clamp(7px,2.1vw,23px);
+    border-color:transparent transparent transparent #fff;margin-left:12%;
+  }
+  .hero-quote-overlay{
+    position:absolute;right:3%;bottom:5%;max-width:40%;text-align:left;
+    color:#fff;font-size:clamp(6px,1.7vw,22px);font-weight:700;font-style:italic;line-height:1.25;
+    text-shadow:0 2px 8px rgba(0,0,0,.6);z-index:3;margin:0;
+  }
+  .hero-banner-frame .hero-video-embed{position:absolute;left:55%;top:0;right:0;bottom:0;inset:auto;}
   .hero-inner{
     max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;
     align-items:center;min-height:520px;
@@ -428,9 +469,15 @@
 
 <section class="hero hero-banner-wrap">
   <div class="hero-banner-frame">
-    <img class="hero-banner-img" src="hero-banner.jpg" alt="Floxed by Cipro, Levaquin, or Avelox? See how others are fighting their way back." fetchpriority="high">
-    <a class="hero-hotspot" style="left:4.5%;top:73%;width:30.9%;height:9.7%;" href="https://dochugh.com/schedule-your-zoom-call-with-dr-hugh-wegwerth" aria-label="Schedule a Zoom Call"></a>
-    <a class="hero-hotspot hero-hotspot-round" style="left:58%;top:47.2%;width:11.3%;height:14.3%;" href="#stories" aria-label="Watch patient recovery story"></a>
+    <img class="hero-banner-img" src="hero-banner.jpg" alt="Floxed by Cipro or Levaquin? See how others are working to rebuild their health after fluoroquinolone antibiotic damage." fetchpriority="high">
+    <div class="hero-copy-overlay">
+      <h1>Floxed by<br>Cipro or Levaquin?</h1>
+      <div class="hero-divider"></div>
+      <p>See how others are working to rebuild their health after fluoroquinolone antibiotic damage.</p>
+      <a class="btn btn-orange hero-overlay-btn" href="https://dochugh.com/schedule-your-zoom-call-with-dr-hugh-wegwerth">Schedule a Zoom Call</a>
+    </div>
+    <button type="button" class="hero-play-overlay" id="heroPlayBtn" aria-label="Play patient recovery video" onclick="playHeroVideo()"></button>
+    <p class="hero-quote-overlay">&ldquo;After Just 3 Cipro Pills,<br>Everything Changed&hellip;&rdquo;</p>
   </div>
 </section>
 
@@ -661,11 +708,16 @@
 
 <script>
   function playHeroVideo(){
-    var thumb = document.getElementById('heroThumb');
+    var frame = document.querySelector('.hero-banner-frame');
+    var btn = document.getElementById('heroPlayBtn');
+    var quote = document.querySelector('.hero-quote-overlay');
+    if(!frame) return;
+    if(btn) btn.remove();
+    if(quote) quote.remove();
     var embed = document.createElement('div');
     embed.className = 'hero-video-embed';
     embed.innerHTML = '<iframe src="https://www.youtube.com/embed/KYrTnKf3iVc?start=1848&autoplay=1" title="Patient Recovery Story" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
-    thumb.replaceWith(embed);
+    frame.appendChild(embed);
   }
 
   function playCardVideo(card){
