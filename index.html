@@ -175,6 +175,9 @@
     box-shadow:0 6px 16px rgba(13,44,84,.08);
     transition:transform .18s ease, box-shadow .18s ease;
   }
+  .video-card-thumb{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+  }
   .video-card:not([data-video-id]):nth-child(3n+2){background:linear-gradient(160deg,#d8d0c2,#a7967d);}
   .video-card:not([data-video-id]):nth-child(3n){background:linear-gradient(160deg,#c9d3c9,#8fa892);}
   .video-card[data-video-id]{cursor:pointer;}
@@ -457,15 +460,15 @@
 <section class="section alt-bg">
   <div class="container">
     <div class="video-grid" id="stories">
-      <div class="video-card" data-video-id="KYrTnKf3iVc" style="background-image:url('https://i.ytimg.com/vi/KYrTnKf3iVc/hqdefault.jpg')" onclick="playCardVideo(this)"><div class="play-btn"></div><div class="caption">3 Cipro Pills Nearly Destroyed Her Health</div></div>
-      <div class="video-card" data-video-id="3VjwQscLgyQ" data-start="377" style="background-image:url('https://i.ytimg.com/vi/3VjwQscLgyQ/hqdefault.jpg')" onclick="playCardVideo(this)"><div class="play-btn"></div><div class="caption">Floxed and Stuck? Fixing the Basics First</div></div>
-      <div class="video-card" data-video-id="o3x-4nuYRu0" style="background-image:url('https://i.ytimg.com/vi/o3x-4nuYRu0/hqdefault.jpg')" onclick="playCardVideo(this)"><div class="play-btn"></div><div class="caption">Misty: From Bedridden to Thriving</div></div>
-      <div class="video-card" data-video-id="C_INXKoJ6cQ" data-start="5" style="background-image:url('https://i.ytimg.com/vi/C_INXKoJ6cQ/hqdefault.jpg')" onclick="playCardVideo(this)"><div class="play-btn"></div><div class="caption">Taylor: From Wheelchair to Wellness</div></div>
-      <div class="video-card" data-video-id="DqabgXQg5QA" data-start="2" style="background-image:url('https://i.ytimg.com/vi/DqabgXQg5QA/hqdefault.jpg')" onclick="playCardVideo(this)"><div class="play-btn"></div><div class="caption">Adam&rsquo;s Path to Recovery</div></div>
-      <div class="video-card" data-video-id="AAzA4n6zigs" data-start="1" style="background-image:url('https://i.ytimg.com/vi/AAzA4n6zigs/hqdefault.jpg')" onclick="playCardVideo(this)"><div class="play-btn"></div><div class="caption">Zee&rsquo;s Fluoroquinolone Recovery</div></div>
-      <div class="video-card" data-video-id="jk41uezPkVc" data-start="2" style="background-image:url('https://i.ytimg.com/vi/jk41uezPkVc/hqdefault.jpg')" onclick="playCardVideo(this)"><div class="play-btn"></div><div class="caption">Achilles Tendon Health: 5 Game Changers</div></div>
-      <div class="video-card" data-video-id="QxEOrUGGsJw" data-start="1308" style="background-image:url('https://i.ytimg.com/vi/QxEOrUGGsJw/hqdefault.jpg')" onclick="playCardVideo(this)"><div class="play-btn"></div><div class="caption">How Antibiotics Cross Into Your Brain</div></div>
-      <div class="video-card" data-video-id="ifUTzAaD064" data-start="625" style="background-image:url('https://i.ytimg.com/vi/ifUTzAaD064/hqdefault.jpg')" onclick="playCardVideo(this)"><div class="play-btn"></div><div class="caption">Is Your Lymph System Backed Up?</div></div>
+      <div class="video-card" data-video-id="KYrTnKf3iVc" onclick="playCardVideo(this)"><img class="video-card-thumb" src="https://i.ytimg.com/vi/KYrTnKf3iVc/hqdefault.jpg" alt="" loading="lazy" decoding="async"><div class="play-btn"></div><div class="caption">3 Cipro Pills Nearly Destroyed Her Health</div></div>
+      <div class="video-card" data-video-id="3VjwQscLgyQ" data-start="377" onclick="playCardVideo(this)"><img class="video-card-thumb" src="https://i.ytimg.com/vi/3VjwQscLgyQ/hqdefault.jpg" alt="" loading="lazy" decoding="async"><div class="play-btn"></div><div class="caption">Floxed and Stuck? Fixing the Basics First</div></div>
+      <div class="video-card" data-video-id="o3x-4nuYRu0" onclick="playCardVideo(this)"><img class="video-card-thumb" src="https://i.ytimg.com/vi/o3x-4nuYRu0/hqdefault.jpg" alt="" loading="lazy" decoding="async"><div class="play-btn"></div><div class="caption">Misty: From Bedridden to Thriving</div></div>
+      <div class="video-card" data-video-id="C_INXKoJ6cQ" data-start="5" onclick="playCardVideo(this)"><img class="video-card-thumb" src="https://i.ytimg.com/vi/C_INXKoJ6cQ/hqdefault.jpg" alt="" loading="lazy" decoding="async"><div class="play-btn"></div><div class="caption">Taylor: From Wheelchair to Wellness</div></div>
+      <div class="video-card" data-video-id="DqabgXQg5QA" data-start="2" onclick="playCardVideo(this)"><img class="video-card-thumb" src="https://i.ytimg.com/vi/DqabgXQg5QA/hqdefault.jpg" alt="" loading="lazy" decoding="async"><div class="play-btn"></div><div class="caption">Adam&rsquo;s Path to Recovery</div></div>
+      <div class="video-card" data-video-id="AAzA4n6zigs" data-start="1" onclick="playCardVideo(this)"><img class="video-card-thumb" src="https://i.ytimg.com/vi/AAzA4n6zigs/hqdefault.jpg" alt="" loading="lazy" decoding="async"><div class="play-btn"></div><div class="caption">Zee&rsquo;s Fluoroquinolone Recovery</div></div>
+      <div class="video-card" data-video-id="jk41uezPkVc" data-start="2" onclick="playCardVideo(this)"><img class="video-card-thumb" src="https://i.ytimg.com/vi/jk41uezPkVc/hqdefault.jpg" alt="" loading="lazy" decoding="async"><div class="play-btn"></div><div class="caption">Achilles Tendon Health: 5 Game Changers</div></div>
+      <div class="video-card" data-video-id="QxEOrUGGsJw" data-start="1308" onclick="playCardVideo(this)"><img class="video-card-thumb" src="https://i.ytimg.com/vi/QxEOrUGGsJw/hqdefault.jpg" alt="" loading="lazy" decoding="async"><div class="play-btn"></div><div class="caption">How Antibiotics Cross Into Your Brain</div></div>
+      <div class="video-card" data-video-id="ifUTzAaD064" data-start="625" onclick="playCardVideo(this)"><img class="video-card-thumb" src="https://i.ytimg.com/vi/ifUTzAaD064/hqdefault.jpg" alt="" loading="lazy" decoding="async"><div class="play-btn"></div><div class="caption">Is Your Lymph System Backed Up?</div></div>
     </div>
 
     <div class="center-cta">
