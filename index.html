@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dr. Hugh Wegwerth, DC</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230d2c54'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Arial,sans-serif' font-weight='900' fill='%23fff' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://i.ytimg.com">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"></noscript>
 <style>
@@ -40,11 +42,6 @@
   .btn:hover{transform:translateY(-1px);}
   .btn-orange{background:var(--orange);color:#fff;}
   .btn-orange:hover{background:var(--orange-dark);}
-  .btn-outline{background:transparent;color:var(--navy);border-color:var(--navy);}
-  .btn-outline:hover{background:var(--navy);color:#fff;}
-  .btn-outline-light{background:transparent;color:#fff;border-color:#fff;}
-  .btn-outline-light:hover{background:#fff;color:var(--navy);}
-
   /* Header */
   header.site-header{
     display:flex;align-items:center;justify-content:space-between;
@@ -66,7 +63,6 @@
     outline:none;-webkit-tap-highlight-color:transparent;
   }
   .hero-hotspot:hover{box-shadow:0 0 0 3px rgba(255,255,255,.6) inset;background:rgba(255,255,255,.08);}
-  .hero-hotspot-round{border-radius:50%;}
 
   .trust-banner{
     background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;
@@ -75,33 +71,6 @@
   }
   .trust-banner svg{width:20px;height:20px;flex-shrink:0;}
 
-  .hero-inner{
-    max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;
-    align-items:center;min-height:520px;
-  }
-  .hero-copy{padding:48px 24px;position:relative;z-index:2;}
-  .hero-copy h1{
-    font-size:40px;line-height:1.1;color:var(--navy);font-weight:900;
-    text-transform:uppercase;margin-bottom:18px;letter-spacing:.5px;
-  }
-  .hero-copy h2{
-    font-size:20px;color:var(--navy);font-weight:700;text-transform:uppercase;
-    margin-bottom:28px;letter-spacing:.3px;
-  }
-  .hero-ctas{display:flex;flex-direction:column;gap:14px;max-width:340px;}
-  .hero-media{
-    position:relative;min-height:520px;
-    background:#000;
-  }
-  .hero-thumb{
-    position:absolute;inset:0;cursor:pointer;border:0;padding:0;
-    background-size:cover;background-position:center;
-    display:block;width:100%;
-  }
-  .hero-thumb::before{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(0deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 35%);
-  }
   .play-btn{
     position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
     width:76px;height:76px;background:#e0261f;border-radius:50%;
@@ -109,35 +78,10 @@
     box-shadow:0 8px 24px rgba(0,0,0,.35);
     transition:transform .15s ease;
   }
-  .hero-thumb:hover .play-btn{transform:translate(-50%,-50%) scale(1.06);}
   .play-btn::after{
     content:'';border-style:solid;border-width:14px 0 14px 22px;
     border-color:transparent transparent transparent #fff;margin-left:5px;
   }
-  .hero-quote{
-    position:absolute;bottom:24px;left:24px;right:24px;z-index:3;
-    color:#fff;font-size:22px;font-weight:700;font-style:italic;
-    text-shadow:0 2px 8px rgba(0,0,0,.6);
-  }
-  .doc-badge{
-    position:absolute;top:24px;right:24px;z-index:5;background:#fff;
-    border-radius:8px;padding:10px;width:150px;text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-  }
-  .doc-badge .avatar{
-    width:100%;aspect-ratio:1/1;border-radius:6px;margin-bottom:8px;
-    background:linear-gradient(160deg,#dfe6ee,#9fb2c7);
-    display:flex;align-items:center;justify-content:center;color:var(--navy);
-    font-weight:800;font-size:28px;overflow:hidden;
-  }
-  .doc-badge .avatar img{width:100%;height:100%;object-fit:cover;}
-  .doc-badge p{font-size:13px;font-weight:700;color:var(--navy);}
-
-  /* Trust bar */
-  .trust-bar{background:var(--navy);color:#fff;text-align:center;padding:16px 24px;}
-  .trust-bar p{font-weight:800;letter-spacing:1px;font-size:15px;display:flex;align-items:center;justify-content:center;gap:10px;}
-  .trust-bar svg{width:20px;height:20px;flex:none;}
-
   /* Section headings */
   .section{padding:64px 24px;}
   .section.alt-bg{background:var(--cream);}
@@ -219,13 +163,7 @@
   .testimonial .stars{display:flex;gap:2px;margin-bottom:-6px;}
   .testimonial .stars svg{width:16px;height:16px;fill:#fbbc04;}
   .testimonial p.quote{font-size:14px;color:var(--gray-text);flex:1;}
-  .testimonial .quote-list{font-size:14px;color:var(--gray-text);padding-left:18px;margin:-8px 0 4px;}
-  .testimonial .quote-list li{margin-bottom:6px;}
   .testimonial .author{display:flex;align-items:center;gap:12px;}
-  .testimonial .author .av{
-    width:44px;height:44px;border-radius:50%;background:linear-gradient(160deg,#dfe6ee,#9fb2c7);
-    flex:none;
-  }
   .testimonial .author strong{display:block;font-size:14px;color:#1a5fb4;}
   .testimonial .author strong a:hover{text-decoration:underline;}
   .testimonial .author span{font-size:12px;color:#777;display:inline-flex;align-items:center;gap:5px;}
@@ -321,16 +259,10 @@
     color:#999;font-family:inherit;box-shadow:0 2px 8px rgba(0,0,0,.15);
   }
   .popup-close:hover{color:var(--navy);}
-  .popup-eyebrow{
-    font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
-    color:var(--orange);margin-bottom:10px;
-  }
-  .popup-title{font-size:22px;font-weight:900;color:var(--navy);text-transform:uppercase;margin-bottom:16px;line-height:1.25;}
   .popup-form-embed{width:100%;min-height:260px;}
   .popup-form-embed iframe{width:100%;min-height:260px;border:none;display:block;}
   @media (max-width:480px){
     .popup-scroll{padding:32px 20px;}
-    .popup-title{font-size:19px;}
   }
 
   /* Nav active section */
@@ -385,14 +317,11 @@
 
   @media (max-width:900px){
     nav.main-nav a.nav-link{display:none;}
-    .hero-inner{grid-template-columns:1fr;}
-    .hero-media{min-height:360px;order:-1;}
     .video-grid{grid-template-columns:repeat(2,1fr);}
     .testimonials{grid-template-columns:1fr;}
   }
   @media (max-width:520px){
     .video-grid{grid-template-columns:1fr;}
-    .hero-copy h1{font-size:30px;}
     header.site-header{padding:14px 16px;}
     .logo{font-size:15px;letter-spacing:.2px;}
     nav.main-nav{gap:12px;}
@@ -414,7 +343,7 @@
 
 <section class="hero hero-banner-wrap">
   <div class="hero-banner-frame">
-    <img class="hero-banner-img" src="hero-banner.jpg" alt="Floxed by Cipro or Levaquin? See how others are working to rebuild their health after fluoroquinolone antibiotic damage." fetchpriority="high">
+    <img class="hero-banner-img" src="hero-banner.jpg" srcset="hero-banner-mobile.jpg 900w, hero-banner.jpg 1691w" sizes="100vw" width="1691" height="930" alt="Floxed by Cipro or Levaquin? See how others are working to rebuild their health after fluoroquinolone antibiotic damage." fetchpriority="high">
     <a class="hero-hotspot" style="left:4.67%;top:75.16%;width:39.56%;height:13.12%;" href="https://dochugh.com/schedule-your-zoom-call-with-dr-hugh-wegwerth" aria-label="Schedule a Zoom Call"></a>
     <a class="hero-hotspot" href="#stories" style="left:64.93%;top:55.48%;width:13.25%;height:17.21%;border-radius:16%;" aria-label="See patient recovery stories"></a>
   </div>
@@ -578,15 +507,15 @@
 
     <div class="about-photos">
       <figure class="about-photo">
-        <div class="about-photo-frame"><img src="about-photo-235lbs.avif" alt="Hugh Wegwerth at 235 lbs, freshman year of high school" loading="lazy" decoding="async"></div>
+        <div class="about-photo-frame"><img src="about-photo-235lbs.avif" width="1024" height="1024" alt="Hugh Wegwerth at 235 lbs, freshman year of high school" loading="lazy" decoding="async"></div>
         <figcaption>Hugh at 235 lbs, freshman year of high school</figcaption>
       </figure>
       <figure class="about-photo">
-        <div class="about-photo-frame"><img src="dr-hugh-thin.jpg" alt="Hugh Wegwerth with his mom and dad after his 80-lb weight loss" loading="lazy" decoding="async"></div>
+        <div class="about-photo-frame"><img src="dr-hugh-thin.jpg" width="1024" height="1024" alt="Hugh Wegwerth with his mom and dad after his 80-lb weight loss" loading="lazy" decoding="async"></div>
         <figcaption>Hugh with his mom and dad after his 80&#8209;lb weight loss</figcaption>
       </figure>
       <figure class="about-photo">
-        <div class="about-photo-frame"><img src="my%20family.webp" alt="Dr. Hugh Wegwerth with his family" loading="lazy" decoding="async"></div>
+        <div class="about-photo-frame"><img src="my%20family.webp" width="743" height="800" alt="Dr. Hugh Wegwerth with his family" loading="lazy" decoding="async"></div>
         <figcaption>Dr. Hugh with his family today</figcaption>
       </figure>
     </div>
